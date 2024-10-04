@@ -3,8 +3,8 @@
     --primary-color: #ff4500;
     --secondary-color: #ffdd57;
     --text-color: #ffffff;
-    --bg-color: #1a1a1a; /* Fundo escuro semelhante ao do cardápio físico */
-    --highlight-color: #ffdd57; /* Cor de destaque semelhante ao amarelo do cardápio */
+    --bg-color: #1a1a1a; /* Fundo escuro */
+    --highlight-color: #ffdd57; /* Cor de destaque semelhante ao cardápio físico */
     --menu-icon-color: #ff4500; /* Cor do ícone do menu */
     --price-color: #ffffff;
 }
@@ -67,6 +67,11 @@ p {
 }
 
 /* Opções de Pão */
+.customize h3 {
+    font-size: 1.4em;
+    color: var(--secondary-color);
+}
+
 .bread-options {
     margin-top: 20px;
 }
@@ -121,14 +126,14 @@ p {
     margin-top: 30px;
 }
 
+#cart-content {
+    font-size: 1.1em;
+    margin-top: 15px;
+}
+
 /* Estilos dos Inputs */
 input[type="text"] {
     padding: 15px;
     margin: 10px 0;
     width: 100%;
-    border-radius: 10px;
-    border: none;
-    background-color: #333;
-    color: var(--text-color);
-    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3);
-}
+    border-radius: 10
