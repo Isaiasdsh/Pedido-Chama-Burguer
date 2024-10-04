@@ -48,6 +48,11 @@ h2 {
     align-items: center;
 }
 
+.menu-icon {
+    color: var(--menu-icon-color);
+    margin-right: 5px; /* Diminuir o espaçamento entre a seta e o nome */
+}
+
 .price-options {
     font-size: 1em;
     color: var(--price-color);
@@ -166,6 +171,7 @@ input[type="text"] {
 
     .menu-icon {
         font-size: 1.2em;
+        margin-right: 3px; /* Menor espaçamento em telas pequenas */
     }
 
     .price-options {
@@ -181,6 +187,7 @@ input[type="text"] {
         padding: 10px;
     }
 }
+
 
 
 
