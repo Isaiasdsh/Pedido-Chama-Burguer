@@ -50,6 +50,7 @@ h2 {
     margin-top: 5px;
 }
 
+/* Estilo para o botão Adicionar ao Carrinho e Finalizar Pedido */
 .add-to-cart-btn, .finalize-btn {
     background: var(--primary-color);
     color: var(--text-color);
@@ -76,6 +77,28 @@ h2 {
 #cart-content {
     font-size: 1.1em;
     margin-top: 15px;
+}
+
+/* Estilo para os ingredientes removidos */
+.removed-ingredients {
+    font-style: italic;
+    color: #ffdd57;
+}
+
+/* Botão para remover item do carrinho */
+button {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #ff7043;
 }
 
 /* Destaque para a taxa de entrega */
@@ -150,7 +173,7 @@ input[type="text"] {
 
     .menu-icon {
         font-size: 1.2em;
-        margin-right: 3px; /* Menor espaçamento em telas pequenas */
+        margin-right: 3px;
     }
 
     .price-options {
