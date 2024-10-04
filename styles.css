@@ -126,15 +126,29 @@ button:hover {
     border-radius: 5px;
 }
 
-/* Estilizando a chave Pix */
-.pix-key {
-    color: #ffdd57; /* Cor amarela para destacar */
-    font-weight: bold;
-    font-size: 1.2em;
-    background-color: #333;
-    padding: 5px 10px;
+/* Estilizando o botão de copiar a chave Pix */
+.copy-pix-btn {
+    background-color: #ff4500;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    cursor: pointer;
     border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
 }
+
+.copy-pix-btn:hover {
+    background-color: #ff7043;
+}
+
+/* Mensagem de sucesso ao copiar */
+#copy-success {
+    font-size: 1em;
+    margin-top: 10px;
+}
+
 
 /* Estilo para os inputs */
 input[type="text"] {
