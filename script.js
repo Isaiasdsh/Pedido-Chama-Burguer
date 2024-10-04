@@ -1,7 +1,6 @@
 let cart = [];
 const deliveryFee = 5.00; // Taxa de entrega
-const pixKey = "48243861000127"; // Chave Pix (CNPJ)
-
+const pixKey = "48243861000127"; // Chave Pix (CNPJ - Nubank)
 
 // Função para adicionar itens ao carrinho
 function addToCart(productName, sizeClass, breadClass) {
@@ -47,6 +46,22 @@ function removeFromCart(index) {
     cart.splice(index, 1); // Remove o item do carrinho
     displayCart(); // Atualiza o carrinho
 }
+
+// Mostrar ou esconder campos adicionais dependendo da forma de pagamento
+document.querySelectorAll('input[name="payment-method"]').forEach((input) => {
+    input.addEventListener('change', function() {
+        if (this.value === "dinheiro") {
+            document.getElementById("troco-section").style.display = "block";
+            document.getElementById("pix-section").style.display = "none";
+        } else if (this.value === "pix") {
+            document.getElementById("troco-section").style.display = "none";
+            document.getElementById("pix-section").style.display = "block";
+        } else {
+            document.getElementById("troco-section").style.display = "none";
+            document.getElementById("pix-section").style.display = "none";
+        }
+    });
+});
 
 // Função para finalizar o pedido
 function finalizeOrder() {
@@ -119,7 +134,6 @@ function sendOrderToWhatsApp(orderSummary) {
     const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(orderSummary)}`;
     window.open(whatsappLink, '_blank');
 }
-
 
 
 
