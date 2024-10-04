@@ -52,6 +52,7 @@ h2 {
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
+    gap: 20px; /* Diminui o espaço entre os tamanhos */
 }
 
 .price-options span {
@@ -199,6 +200,7 @@ input[type="text"] {
         padding: 10px;
     }
 }
+
 
 
 
