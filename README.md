@@ -12,4 +12,4 @@ Este é um projeto de cardápio interativo para uma hamburgueria delivery, desen
 
 1. Clone este repositório:
    ```bash
-   git clone https://github.com/isaias.dsh/chama-burguer-delivery.git
+   git clone https://github.com/Isaiasdsh/chama-burguer-delivery.git
