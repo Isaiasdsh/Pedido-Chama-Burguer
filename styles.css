@@ -3,18 +3,18 @@
     --primary-color: #ff4500;
     --secondary-color: #ffdd57;
     --text-color: #ffffff;
-    --bg-color: #1a1a1a; /* Fundo escuro */
-    --highlight-color: #ffdd57; /* Cor de destaque semelhante ao cardápio físico */
-    --menu-icon-color: #ff4500; /* Cor do ícone do menu */
-    --price-color: #ffdd57; /* Cor dos preços */
+    --bg-color: #1a1a1a;
+    --highlight-color: #ffdd57;
+    --menu-icon-color: #ff4500;
+    --price-color: #ffdd57;
 }
 
 /* Estilo Global */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
-    background-color: var(--bg-color); /* Fundo escuro */
-    color: var(--text-color);          /* Texto branco */
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 header {
@@ -27,11 +27,15 @@ header .logo img {
     height: auto;
 }
 
-/* Estilos para o Menu */
 main {
     padding: 20px;
     max-width: 800px;
     margin: 0 auto;
+}
+
+h2 {
+    font-size: 1.8em;
+    color: var(--highlight-color);
 }
 
 .menu-item {
@@ -40,60 +44,12 @@ main {
     margin-bottom: 20px;
 }
 
-h2 {
-    font-size: 1.8em;
-    color: var(--highlight-color);
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-}
-
-.menu-icon {
-    color: var(--menu-icon-color);
-    margin-right: 5px; /* Diminuir o espaçamento entre a seta e o nome */
-}
-
 .price-options {
     font-size: 1em;
     color: var(--price-color);
     margin-top: 5px;
 }
 
-p {
-    font-size: 1.1em;
-    margin-top: 10px;
-}
-
-/* Customização */
-.customize h3 {
-    font-size: 1.4em;
-    color: var(--secondary-color);
-}
-
-.bread-options {
-    margin-top: 20px;
-}
-
-.bread-options h3 {
-    font-size: 1.5em;
-    color: var(--highlight-color);
-}
-
-.bread-options ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.bread-options ul li {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-}
-
-.bread-options ul li .menu-icon {
-    color: var(--menu-icon-color);
-}
-
-/* Botões - Adicionar ao Carrinho e Finalizar Pedido */
 .add-to-cart-btn, .finalize-btn {
     background: var(--primary-color);
     color: var(--text-color);
@@ -115,12 +71,36 @@ p {
 #cart h2 {
     font-size: 2.2em;
     color: var(--highlight-color);
-    margin-top: 30px;
 }
 
 #cart-content {
     font-size: 1.1em;
     margin-top: 15px;
+}
+
+/* Destaque para a taxa de entrega */
+#delivery-fee {
+    font-size: 1.2em;
+    color: var(--secondary-color);
+    margin-top: 20px;
+}
+
+#total-price {
+    font-size: 1.5em;
+    color: var(--highlight-color);
+    margin-top: 10px;
+}
+
+/* Seções de pagamento */
+#payment {
+    margin-top: 20px;
+}
+
+#troco-section, #pix-section {
+    margin-top: 15px;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 /* Estilos dos Inputs */
@@ -132,7 +112,6 @@ input[type="text"] {
     border: none;
     background-color: #333;
     color: var(--text-color);
-    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* ----- Responsividade para dispositivos móveis ----- */
