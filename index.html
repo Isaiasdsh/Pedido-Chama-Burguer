@@ -105,9 +105,12 @@
 
             <!-- Se escolher Pix, exibir chave Pix -->
 <div id="pix-section" style="display: none;">
-    <h3>Chave Pix: <span class="pix-key">CNPJ 48243861000127</span></h3>
+    <h3>Chave Pix: <span class="pix-key" id="pix-key">CNPJ 48243861000127</span></h3>
+    <button class="copy-pix-btn" onclick="copyPixKey()">Copiar Chave Pix</button>
+    <p id="copy-success" style="display:none; color: green;">Chave Pix copiada!</p>
     <p>Envie o comprovante junto com o pedido pelo WhatsApp.</p>
 </div>
+
 
 
         <button class="finalize-btn" onclick="finalizeOrder()">Finalizar Pedido</button>
