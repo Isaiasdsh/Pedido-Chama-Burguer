@@ -1,121 +1,204 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chama Burguer - Cardápio 3D</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <div class="logo">
-            <img src="logo.png" alt="Chama Burguer">
-        </div>
-    </header>
+/* Definindo a paleta de cores */
+:root {
+    --primary-color: #ff4500;
+    --secondary-color: #ffdd57;
+    --text-color: #ffffff;
+    --bg-color: #1a1a1a;
+    --highlight-color: #ffdd57;
+    --menu-icon-color: #ff4500;
+    --price-color: #ffdd57;
+}
 
-    <main>
-        <section id="menu">
-            <!-- Itens do cardápio -->
-            <div class="menu-item">
-                <h2><span class="menu-icon">►</span> CHAMA Clássico</h2>
-                <div class="price-options">
-                    <span>Simples: R$25</span>
-                    <span>Duplo: R$33</span>
-                </div>
-                <p>Pão, Hambúrguer de carne bovina, queijo mussarela, cebola roxa, alface, tomate, maionese da casa.</p>
-                <div class="customize">
-                    <h3>Customize seu pedido</h3>
-                    <p>Tamanho:</p>
-                    <label><input type="radio" name="size-classico" value="single" checked> Simples</label>
-                    <label><input type="radio" name="size-classico" value="double"> Duplo</label>
-                    <p>Pão:</p>
-                    <label><input type="radio" name="bread-classico" value="brioche" checked> Brioche</label>
-                    <label><input type="radio" name="bread-classico" value="parmesao"> Parmesão</label>
-                </div>
-                <button class="add-to-cart-btn" onclick="addToCart('CHAMA Clássico', 'size-classico', 'bread-classico')">Adicionar ao Carrinho</button>
-            </div>
+/* Estilo Global */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
 
-            <div class="menu-item">
-                <h2><span class="menu-icon">►</span> CHAMA Bacon</h2>
-                <div class="price-options">
-                    <span>Simples: R$29</span>
-                    <span>Duplo: R$37</span>
-                </div>
-                <p>Pão, Hambúrguer de carne bovina, BBQ, queijo mussarela, cheddar cremoso, bacon em tiras, alface, tomate, cebola roxa, maionese da casa.</p>
-                <div class="customize">
-                    <h3>Customize seu pedido</h3>
-                    <p>Tamanho:</p>
-                    <label><input type="radio" name="size-bacon" value="single" checked> Simples</label>
-                    <label><input type="radio" name="size-bacon" value="double"> Duplo</label>
-                    <p>Pão:</p>
-                    <label><input type="radio" name="bread-bacon" value="brioche" checked> Brioche</label>
-                    <label><input type="radio" name="bread-bacon" value="parmesao"> Parmesão</label>
-                </div>
-                <button class="add-to-cart-btn" onclick="addToCart('CHAMA Bacon', 'size-bacon', 'bread-bacon')">Adicionar ao Carrinho</button>
-            </div>
-        </section>
+header {
+    text-align: center;
+    padding: 20px;
+}
 
-        <!-- Carrinho -->
-        <section id="cart">
-            <h2>Seu Carrinho</h2>
-            <div id="cart-content">
-                <!-- O conteúdo do carrinho será atualizado aqui -->
-            </div>
-            <div id="delivery-fee">
-                <!-- Exibição da taxa de entrega aqui -->
-            </div>
-            <div id="total-price">
-                <!-- Exibição do total com entrega -->
-            </div>
-        </section>
+header .logo img {
+    max-width: 200px;
+    height: auto;
+}
 
-        <!-- Informações do cliente -->
-        <section id="customer-info">
-            <h2>Informações do Cliente</h2>
-            <label for="customer-name">Nome do Cliente:</label>
-            <input type="text" id="customer-name" placeholder="Digite seu nome">
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
 
-            <label for="address">Endereço Completo:</label>
-            <input type="text" id="address" placeholder="Rua, Número, Bairro">
+h2 {
+    font-size: 1.8em;
+    color: var(--highlight-color);
+}
 
-            <label for="reference">Ponto de Referência:</label>
-            <input type="text" id="reference" placeholder="Ex: Perto do Supermercado X">
-        </section>
+.menu-item {
+    border-bottom: 1px solid #444;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
 
-        <!-- Opções de pagamento -->
-        <section id="payment">
-            <h2>Forma de Pagamento</h2>
-            <label><input type="radio" name="payment-method" value="dinheiro" checked> Dinheiro</label>
-            <label><input type="radio" name="payment-method" value="cartao"> Cartão</label>
-            <label><input type="radio" name="payment-method" value="pix"> Pix</label>
+/* Estilo para o destaque dos tamanhos do lanche */
+.price-options {
+    font-size: 1.5em;  /* Aumenta o tamanho da fonte */
+    font-weight: bold; /* Deixa o texto em negrito para destaque */
+    color: var(--price-color);
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
 
-            <!-- Se escolher dinheiro, exibir campo para troco -->
-            <div id="troco-section" style="display: none;">
-                <label for="troco">Troco para:</label>
-                <input type="text" id="troco" placeholder="Digite o valor do troco">
-            </div>
+.price-options span {
+    padding: 5px 10px;
+    border-radius: 8px;
+    background-color: #333; /* Fundo escuro para destacar os preços */
+    color: #fff;            /* Cor branca para contraste */
+}
 
-            <!-- Se escolher Pix, exibir chave Pix -->
-            <div id="pix-section" style="display: none;">
-                <h3>Chave Pix: CNPJ 48243861000127</h3>
-                <p>Envie o comprovante junto com o pedido pelo WhatsApp.</p>
-            </div>
-        </section>
+.add-to-cart-btn, .finalize-btn {
+    background: var(--primary-color);
+    color: var(--text-color);
+    padding: 15px;
+    font-size: 1.3em;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
 
-        <button class="finalize-btn" onclick="finalizeOrder()">Finalizar Pedido</button>
+.add-to-cart-btn:hover, .finalize-btn:hover {
+    background: #ff7043;
+}
 
-        <section id="comanda">
-            <h2>Comanda</h2>
-            <div id="order-summary">
-                <!-- A comanda será gerada aqui -->
-            </div>
-        </section>
-    </main>
+/* Estilo do Carrinho */
+#cart h2 {
+    font-size: 2.2em;
+    color: var(--highlight-color);
+}
 
-    <script src="script.js"></script>
-</body>
-</html>
+#cart-content {
+    font-size: 1.1em;
+    margin-top: 15px;
+}
 
+/* Estilo para os ingredientes removidos */
+.removed-ingredients {
+    font-style: italic;
+    color: #ffdd57;
+}
+
+/* Botão para remover item do carrinho */
+button {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #ff7043;
+}
+
+/* Destaque para a taxa de entrega */
+#delivery-fee {
+    font-size: 1.2em;
+    color: var(--secondary-color);
+    margin-top: 20px;
+}
+
+#total-price {
+    font-size: 1.5em;
+    color: var(--highlight-color);
+    margin-top: 10px;
+}
+
+/* Seções de pagamento */
+#payment {
+    margin-top: 20px;
+}
+
+#troco-section, #pix-section {
+    margin-top: 15px;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Estilo dos inputs */
+input[type="text"] {
+    padding: 15px;
+    margin: 10px 0;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    background-color: #333;
+    color: var(--text-color);
+}
+
+/* ----- Responsividade para dispositivos móveis ----- */
+@media (max-width: 768px) {
+    main {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .price-options {
+        font-size: 0.9em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    .add-to-cart-btn, .finalize-btn {
+        padding: 12px;
+        font-size: 1.1em;
+    }
+
+    .customize h3, .bread-options h3 {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.3em;
+    }
+
+    .menu-icon {
+        font-size: 1.2em;
+        margin-right: 3px;
+    }
+
+    .price-options {
+        font-size: 0.8em;
+    }
+
+    .add-to-cart-btn, .finalize-btn {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    input[type="text"] {
+        padding: 10px;
+    }
+}
 
 
 
