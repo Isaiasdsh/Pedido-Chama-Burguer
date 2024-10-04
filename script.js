@@ -3,9 +3,14 @@ const deliveryFee = 5.00; // Taxa de entrega
 const pixKey = "48243861000127"; // Chave Pix (CNPJ - Nubank)
 
 // Função para adicionar itens ao carrinho
-function addToCart(productName, sizeClass, breadClass) {
+function addToCart(productName, sizeClass, breadClass, ingredientClass) {
     const size = document.querySelector(`input[name=${sizeClass}]:checked`).value;
     const bread = document.querySelector(`input[name=${breadClass}]:checked`).value;
+
+    let removedIngredients = [];
+    document.querySelectorAll(`.${ingredientClass}:checked`).forEach((checkbox) => {
+        removedIngredients.push(checkbox.value);
+    });
 
     let price = size === 'single' ? (productName === 'CHAMA Clássico' ? 25 : 29) : (productName === 'CHAMA Clássico' ? 33 : 37);
 
@@ -13,7 +18,8 @@ function addToCart(productName, sizeClass, breadClass) {
         productName,
         size: size === 'single' ? 'Simples' : 'Duplo',
         bread,
-        price
+        price,
+        removedIngredients: removedIngredients.join(', ')
     });
 
     displayCart();
@@ -29,7 +35,7 @@ function displayCart() {
 
     let total = 0;
     cart.forEach((item, index) => {
-        cartElement.innerHTML += `<p>${item.productName} (${item.size}) - Pão: ${item.bread} - R$${item.price.toFixed(2)} <button onclick="removeFromCart(${index})">Remover</button></p>`;
+        cartElement.innerHTML += `<p>${item.productName} (${item.size}) - Pão: ${item.bread} - R$${item.price.toFixed(2)} <br> Removido: ${item.removedIngredients} <button onclick="removeFromCart(${index})">Remover</button></p>`;
         total += item.price;
     });
 
@@ -102,6 +108,9 @@ function finalizeOrder() {
         orderSummary += `🍔 *Hambúrguer:* ${item.productName}\n`;
         orderSummary += `Tamanho: ${item.size}\n`;
         orderSummary += `Pão: ${item.bread}\n`;
+        if (item.removedIngredients) {
+            orderSummary += `Removido: ${item.removedIngredients}\n`;
+        }
         orderSummary += `💵 *Preço:* R$${item.price.toFixed(2)}\n`;
         orderSummary += `---\n`;
         total += item.price;
@@ -134,6 +143,3 @@ function sendOrderToWhatsApp(orderSummary) {
     const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(orderSummary)}`;
     window.open(whatsappLink, '_blank');
 }
-
-
-
