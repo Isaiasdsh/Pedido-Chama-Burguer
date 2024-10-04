@@ -52,7 +52,7 @@ h2 {
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
-    gap: 20px; /* Diminui o espaço entre os tamanhos */
+    gap: 5px; /* Diminui ainda mais o espaço entre os tamanhos */
 }
 
 .price-options span {
