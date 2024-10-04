@@ -103,14 +103,10 @@
                 <input type="text" id="troco" placeholder="Digite o valor do troco">
             </div>
 
-            <!-- Se escolher Pix, exibir chave Pix e código Pix Copia e Cola -->
+            <!-- Se escolher Pix, exibir chave Pix e orientação -->
 <div id="pix-section" style="display: none;">
     <h3>Chave Pix: <span class="pix-key" id="pix-key">CNPJ 48243861000127</span></h3>
-    <button class="generate-pix-btn" onclick="generatePixCode()">Gerar Pix Copia e Cola</button>
-    <textarea id="pix-code" rows="4" style="width: 100%; margin-top: 10px;" readonly></textarea>
-    <button class="copy-pix-btn" onclick="copyPixCode()">Copiar Pix Copia e Cola</button>
-    <p id="copy-success" style="display:none; color: green;">Código Pix Copia e Cola copiado!</p>
-    <p>Envie o comprovante junto com o pedido pelo WhatsApp.</p>
+    <p>Por favor, finalize o pedido e envie o comprovante para o WhatsApp.</p>
 </div>
 
         <button class="finalize-btn" onclick="finalizeOrder()">Finalizar Pedido</button>
