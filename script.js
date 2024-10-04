@@ -172,6 +172,48 @@ function calculateTotal() {
     // Função para copiar o código Pix Copia e Cola
 function copyPixCode() {
     const pixCode = document.getElementById("pix-code");
+
+    // Seleciona o conteúdo do textarea
+    pixCode.select();
+    pixCode.setSelectionRange(0, 99999); // Para compatibilidade com dispositivos móveis
+
+    // Executa o comando de copiar
+    document.execCommand("copy");
+
+    // Mostrar mensagem de sucesso
+    document.getElementById("copy-success").style.display = "block";
+
+    // Esconder mensagem após 2 segundos
+    setTimeout(() => {
+        document.getElementById("copy-success").style.display = "none";
+    }, 2000);
+}
+
+
+// Função para calcular o valor total do pedido
+function calculateTotal() {
+    let total = 0;
+    cart.forEach(item => {
+        total += item.price;
+    });
+    total += deliveryFee; // Adiciona a taxa de entrega
+    return total;
+}
+
+
+// Função para calcular o valor total do pedido
+function calculateTotal() {
+    let total = 0;
+    cart.forEach(item => {
+        total += item.price;
+    });
+    total += deliveryFee; // Adiciona a taxa de entrega
+    return total;
+}
+
+    // Função para copiar o código Pix Copia e Cola
+function copyPixCode() {
+    const pixCode = document.getElementById("pix-code");
     pixCode.select();
     document.execCommand("copy");
 
