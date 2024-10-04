@@ -28,7 +28,7 @@ function addToCart(productName, sizeClass, breadClass, ingredientClass) {
 
 // Função para exibir o carrinho
 function displayCart() {
-  const cartElement = document.getElementById("cart");
+  const cartElement = document.getElementById("cart-content");
   cartElement.innerHTML = "";
 
   let total = 0;
@@ -99,3 +99,4 @@ function finalizeOrder() {
   cart = [];
   displayCart();
 }
+
