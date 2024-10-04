@@ -103,11 +103,14 @@ function finalizeOrder() {
 
     // Função para gerar o código Pix Copia e Cola
 function generatePixCode() {
-    const pixKey = "CNPJ 48243861000127"; // Chave Pix
+    const pixKey = "48243861000127"; // Chave Pix (CNPJ - Nubank)
     const merchantName = "Chama Burguer"; // Nome do comerciante
-    const merchantCity = "Florianópolis"; // Cidade do comerciante
+    const merchantCity = "FLORIANOPOLIS"; // Cidade do comerciante (máximo 15 caracteres)
     const total = calculateTotal(); // Função para calcular o valor total do pedido
     const transactionId = "CHAMABURGER123"; // Identificador único da transação
+
+    // Formatando o valor para incluir sempre duas casas decimais
+    const formattedTotal = total.toFixed(2).replace('.', '');
 
     // Gera o código Pix Copia e Cola no formato EMV QR Code
     const pixCode = `
@@ -116,19 +119,57 @@ function generatePixCode() {
         26${pixKey.length + 5}0014BR.GOV.BCB.PIX01${pixKey.length}${pixKey}
         52040000
         5303986
-        5407${total.toFixed(2)}
+        54${('' + formattedTotal).length}${formattedTotal}
         5802BR
         5914${merchantName}
         6011${merchantCity}
         62070503${transactionId}
         6304
-    `.replace(/\s+/g, ''); // Remove espaços
+    `.replace(/\s+/g, ''); // Remove espaços e novas linhas
+
+    // Calcula o CRC16 do código para validar
+    const crc = generateCRC16(pixCode);
+
+    // Adiciona o CRC no final do código Pix Copia e Cola
+    const finalPixCode = pixCode + crc;
 
     // Insere o código no textarea
-    document.getElementById("pix-code").value = pixCode;
+    document.getElementById("pix-code").value = finalPixCode;
 }
 
-// Função para copiar o código Pix Copia e Cola
+// Função para calcular o CRC16 (obrigatório no Pix Copia e Cola)
+function generateCRC16(pixCode) {
+    let crc = 0xFFFF;
+    let polynomial = 0x1021;
+
+    for (let i = 0; i < pixCode.length; i++) {
+        let byte = pixCode.charCodeAt(i);
+        crc ^= byte << 8;
+
+        for (let j = 0; j < 8; j++) {
+            if ((crc & 0x8000) !== 0) {
+                crc = (crc << 1) ^ polynomial;
+            } else {
+                crc <<= 1;
+            }
+        }
+    }
+
+    crc &= 0xFFFF;
+    return crc.toString(16).toUpperCase().padStart(4, '0');
+}
+
+// Função para calcular o valor total do pedido
+function calculateTotal() {
+    let total = 0;
+    cart.forEach(item => {
+        total += item.price;
+    });
+    total += deliveryFee; // Adiciona a taxa de entrega
+    return total;
+}
+
+    // Função para copiar o código Pix Copia e Cola
 function copyPixCode() {
     const pixCode = document.getElementById("pix-code");
     pixCode.select();
@@ -142,6 +183,7 @@ function copyPixCode() {
         document.getElementById("copy-success").style.display = "none";
     }, 2000);
 }
+
 
 // Função para calcular o valor total do pedido
 function calculateTotal() {
