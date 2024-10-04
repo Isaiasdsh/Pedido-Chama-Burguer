@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chama Burguer - Cardápio</title>
+    <title>Chama Burguer - Cardápio 3D</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -18,30 +18,49 @@
             <div class="menu-item">
                 <h2><span class="menu-icon">►</span> CHAMA Clássico <span class="price">R$25 | Duplo: R$33</span></h2>
                 <p>Pão, Hambúrguer de carne bovina, queijo mussarela, cebola roxa, alface, tomate, maionese da casa.</p>
+                <div class="customize">
+                    <h3>Customize seu pedido</h3>
+                    <p>Tamanho:</p>
+                    <label><input type="radio" name="size-classico" value="single" checked> Simples</label>
+                    <label><input type="radio" name="size-classico" value="double"> Duplo</label>
+                    <p>Pão:</p>
+                    <label><input type="radio" name="bread-classico" value="brioche" checked> Brioche</label>
+                    <label><input type="radio" name="bread-classico" value="parmesao"> Parmesão</label>
+                    <p>Remover Ingredientes:</p>
+                    <label><input type="checkbox" value="cebola" class="ingredient-classico"> Cebola Roxa</label>
+                    <label><input type="checkbox" value="alface" class="ingredient-classico"> Alface</label>
+                    <label><input type="checkbox" value="tomate" class="ingredient-classico"> Tomate</label>
+                    <label><input type="checkbox" value="maionese" class="ingredient-classico"> Maionese da Casa</label>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('CHAMA Clássico', 'size-classico', 'bread-classico', 'ingredient-classico')">Adicionar ao Carrinho</button>
             </div>
 
             <div class="menu-item">
                 <h2><span class="menu-icon">►</span> CHAMA Bacon <span class="price">R$29 | Duplo: R$37</span></h2>
                 <p>Pão, Hambúrguer de carne bovina, BBQ, queijo mussarela, cheddar cremoso, bacon em tiras, alface, tomate, cebola roxa, maionese da casa.</p>
-            </div>
-
-            <div class="bread-options">
-                <h3>ESCOLHA SEU PÃO:</h3>
-                <ul>
-                    <li><span class="menu-icon">►</span> Brioche</li>
-                    <li><span class="menu-icon">►</span> Parmesão</li>
-                </ul>
-            </div>
-
-            <div class="footer-info">
-                <p><strong>Todos os lanches acompanham</strong> Batata Frita Tradicional</p>
-                <p><strong>Taxa de entrega:</strong> R$ 5,00</p>
+                <div class="customize">
+                    <h3>Customize seu pedido</h3>
+                    <p>Tamanho:</p>
+                    <label><input type="radio" name="size-bacon" value="single" checked> Simples</label>
+                    <label><input type="radio" name="size-bacon" value="double"> Duplo</label>
+                    <p>Pão:</p>
+                    <label><input type="radio" name="bread-bacon" value="brioche" checked> Brioche</label>
+                    <label><input type="radio" name="bread-bacon" value="parmesao"> Parmesão</label>
+                    <p>Remover Ingredientes:</p>
+                    <label><input type="checkbox" value="bacon" class="ingredient-bacon"> Bacon</label>
+                    <label><input type="checkbox" value="cheddar" class="ingredient-bacon"> Cheddar</label>
+                    <label><input type="checkbox" value="cebola" class="ingredient-bacon"> Cebola Roxa</label>
+                    <label><input type="checkbox" value="maionese" class="ingredient-bacon"> Maionese da Casa</label>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('CHAMA Bacon', 'size-bacon', 'bread-bacon', 'ingredient-bacon')">Adicionar ao Carrinho</button>
             </div>
         </section>
 
         <section id="cart">
             <h2>Seu Carrinho</h2>
-            <!-- O conteúdo do carrinho será atualizado aqui -->
+            <div id="cart-content">
+                <!-- O conteúdo do carrinho será atualizado aqui -->
+            </div>
         </section>
 
         <label for="customer-name">Nome do Cliente:</label>
@@ -57,11 +76,12 @@
 
         <section id="comanda">
             <h2>Comanda</h2>
-            <!-- A comanda será gerada aqui -->
+            <div id="order-summary">
+                <!-- A comanda será gerada aqui -->
+            </div>
         </section>
     </main>
 
     <script src="script.js"></script>
 </body>
 </html>
-
