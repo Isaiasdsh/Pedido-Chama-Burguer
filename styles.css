@@ -45,23 +45,13 @@ h2 {
     color: var(--highlight-color);
     font-weight: bold;
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
-.menu-icon {
-    color: var(--menu-icon-color);
-    font-weight: bold;
-    margin-right: 10px;
-}
-
-.price {
-    background: var(--primary-color);
-    padding: 5px 10px;
-    border-radius: 5px;
+.price-options {
+    font-size: 1em;
     color: var(--price-color);
-    font-size: 0.9em;
-    margin-left: 10px;
+    margin-top: 5px;
 }
 
 p {
@@ -151,9 +141,8 @@ input[type="text"] {
         font-size: 1.5em;
     }
 
-    .price {
-        font-size: 0.8em;
-        padding: 3px 8px;
+    .price-options {
+        font-size: 0.9em;
     }
 
     p {
@@ -179,9 +168,8 @@ input[type="text"] {
         font-size: 1.2em;
     }
 
-    .price {
-        font-size: 0.7em;
-        padding: 2px 6px;
+    .price-options {
+        font-size: 0.8em;
     }
 
     .add-to-cart-btn, .finalize-btn {
@@ -193,5 +181,6 @@ input[type="text"] {
         padding: 10px;
     }
 }
+
 
 
