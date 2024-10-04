@@ -49,10 +49,10 @@ h2 {
     font-size: 1.5em;  /* Aumenta o tamanho da fonte */
     font-weight: bold; /* Deixa o texto em negrito para destaque */
     color: var(--price-color);
-    margin-top: 10px;
     display: flex;
-    justify-content: space-between;
-    gap: 5px; /* Diminui ainda mais o espaço entre os tamanhos */
+    align-items: center;
+    gap: 10px; /* Define o espaço entre os preços */
+    justify-content: flex-start; /* Alinha os preços à esquerda */
 }
 
 .price-options span {
@@ -60,7 +60,9 @@ h2 {
     border-radius: 8px;
     background-color: #333; /* Fundo escuro para destacar os preços */
     color: #fff;            /* Cor branca para contraste */
+    white-space: nowrap;    /* Impede a quebra de linha entre os preços */
 }
+
 
 .add-to-cart-btn, .finalize-btn {
     background: var(--primary-color);
