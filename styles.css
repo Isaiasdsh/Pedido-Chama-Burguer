@@ -126,8 +126,8 @@ button:hover {
     border-radius: 5px;
 }
 
-/* Estilizando o botão de copiar a chave Pix */
-.copy-pix-btn {
+/* Estilizando o botão de gerar e copiar Pix Copia e Cola */
+.generate-pix-btn, .copy-pix-btn {
     background-color: #ff4500;
     color: #fff;
     border: none;
@@ -138,6 +138,22 @@ button:hover {
     margin-top: 10px;
     transition: background-color 0.3s ease;
 }
+
+.generate-pix-btn:hover, .copy-pix-btn:hover {
+    background-color: #ff7043;
+}
+
+/* Estilizando o textarea para o código Pix */
+#pix-code {
+    font-size: 1em;
+    background-color: #444;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    resize: none;
+}
+
 
 .copy-pix-btn:hover {
     background-color: #ff7043;
