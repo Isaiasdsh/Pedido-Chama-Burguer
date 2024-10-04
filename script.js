@@ -101,6 +101,26 @@ function finalizeOrder() {
         }
     }
 
+    // Função para copiar a chave Pix
+function copyPixKey() {
+    const pixKey = document.getElementById("pix-key").textContent;
+    const tempInput = document.createElement("input");
+    document.body.appendChild(tempInput);
+    tempInput.value = pixKey;
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+
+    // Mostrar mensagem de sucesso
+    document.getElementById("copy-success").style.display = "block";
+
+    // Esconder mensagem após 2 segundos
+    setTimeout(() => {
+        document.getElementById("copy-success").style.display = "none";
+    }, 2000);
+}
+
+
     // Gerar a comanda para enviar via WhatsApp
     let orderSummary = `🍔 *Pedido de ${customerName}* 🍔\n\n`;
     orderSummary += `📍 *Endereço:* ${address}\n`;
