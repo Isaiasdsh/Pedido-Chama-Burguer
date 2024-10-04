@@ -15,26 +15,13 @@
 
     <main>
         <section id="menu">
+            <!-- Itens do cardápio -->
             <div class="menu-item">
                 <h2><span class="menu-icon">►</span> CHAMA Clássico</h2>
                 <div class="price-options">
                     <span>Simples: R$25</span> | <span>Duplo: R$33</span>
                 </div>
                 <p>Pão, Hambúrguer de carne bovina, queijo mussarela, cebola roxa, alface, tomate, maionese da casa.</p>
-                <div class="customize">
-                    <h3>Customize seu pedido</h3>
-                    <p>Tamanho:</p>
-                    <label><input type="radio" name="size-classico" value="single" checked> Simples</label>
-                    <label><input type="radio" name="size-classico" value="double"> Duplo</label>
-                    <p>Pão:</p>
-                    <label><input type="radio" name="bread-classico" value="brioche" checked> Brioche</label>
-                    <label><input type="radio" name="bread-classico" value="parmesao"> Parmesão</label>
-                    <p>Remover Ingredientes:</p>
-                    <label><input type="checkbox" value="cebola" class="ingredient-classico"> Cebola Roxa</label>
-                    <label><input type="checkbox" value="alface" class="ingredient-classico"> Alface</label>
-                    <label><input type="checkbox" value="tomate" class="ingredient-classico"> Tomate</label>
-                    <label><input type="checkbox" value="maionese" class="ingredient-classico"> Maionese da Casa</label>
-                </div>
                 <button class="add-to-cart-btn" onclick="addToCart('CHAMA Clássico', 'size-classico', 'bread-classico', 'ingredient-classico')">Adicionar ao Carrinho</button>
             </div>
 
@@ -44,39 +31,43 @@
                     <span>Simples: R$29</span> | <span>Duplo: R$37</span>
                 </div>
                 <p>Pão, Hambúrguer de carne bovina, BBQ, queijo mussarela, cheddar cremoso, bacon em tiras, alface, tomate, cebola roxa, maionese da casa.</p>
-                <div class="customize">
-                    <h3>Customize seu pedido</h3>
-                    <p>Tamanho:</p>
-                    <label><input type="radio" name="size-bacon" value="single" checked> Simples</label>
-                    <label><input type="radio" name="size-bacon" value="double"> Duplo</label>
-                    <p>Pão:</p>
-                    <label><input type="radio" name="bread-bacon" value="brioche" checked> Brioche</label>
-                    <label><input type="radio" name="bread-bacon" value="parmesao"> Parmesão</label>
-                    <p>Remover Ingredientes:</p>
-                    <label><input type="checkbox" value="bacon" class="ingredient-bacon"> Bacon</label>
-                    <label><input type="checkbox" value="cheddar" class="ingredient-bacon"> Cheddar</label>
-                    <label><input type="checkbox" value="cebola" class="ingredient-bacon"> Cebola Roxa</label>
-                    <label><input type="checkbox" value="maionese" class="ingredient-bacon"> Maionese da Casa</label>
-                </div>
                 <button class="add-to-cart-btn" onclick="addToCart('CHAMA Bacon', 'size-bacon', 'bread-bacon', 'ingredient-bacon')">Adicionar ao Carrinho</button>
             </div>
         </section>
 
+        <!-- Carrinho -->
         <section id="cart">
             <h2>Seu Carrinho</h2>
             <div id="cart-content">
                 <!-- O conteúdo do carrinho será atualizado aqui -->
             </div>
+            <div id="delivery-fee">
+                <!-- Exibição da taxa de entrega aqui -->
+            </div>
+            <div id="total-price">
+                <!-- Exibição do total com entrega -->
+            </div>
         </section>
 
-        <label for="customer-name">Nome do Cliente:</label>
-        <input type="text" id="customer-name" placeholder="Digite seu nome">
+        <!-- Opções de pagamento -->
+        <section id="payment">
+            <h2>Forma de Pagamento</h2>
+            <label><input type="radio" name="payment-method" value="dinheiro" checked> Dinheiro</label>
+            <label><input type="radio" name="payment-method" value="cartao"> Cartão</label>
+            <label><input type="radio" name="payment-method" value="pix"> Pix</label>
 
-        <label for="address">Endereço Completo:</label>
-        <input type="text" id="address" placeholder="Rua, Número, Bairro">
+            <!-- Se escolher dinheiro, exibir campo para troco -->
+            <div id="troco-section" style="display: none;">
+                <label for="troco">Troco para:</label>
+                <input type="text" id="troco" placeholder="Digite o valor do troco">
+            </div>
 
-        <label for="reference">Ponto de Referência:</label>
-        <input type="text" id="reference" placeholder="Ex: Perto do Supermercado X">
+            <!-- Se escolher Pix, exibir chave Pix -->
+            <div id="pix-section" style="display: none;">
+                <h3>Chave Pix: 123e4567-e89b-12d3-a456-426614174000</h3>
+                <p>Envie o comprovante junto com o pedido pelo WhatsApp.</p>
+            </div>
+        </section>
 
         <button class="finalize-btn" onclick="finalizeOrder()">Finalizar Pedido</button>
 
@@ -87,6 +78,11 @@
             </div>
         </section>
     </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
 
     <script src="script.js"></script>
 </body>
