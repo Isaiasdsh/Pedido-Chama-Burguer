@@ -3,57 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chama Burguer - Cardápio 3D</title>
+    <title>Chama Burguer - Cardápio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>🍔 Chama Burguer 🍔</h1>
-        <p>O melhor hambúrguer com a sua cara. Personalize seu sabor e faça seu pedido!</p>
+        <div class="logo">
+            <img src="logo.png" alt="Chama Burguer">
+        </div>
     </header>
 
     <main>
         <section id="menu">
             <div class="menu-item">
-                <h2>CHAMA Clássico</h2>
-                <p>Carne bovina, queijo mussarela, cebola roxa, alface, tomate, e maionese da casa.</p>
-                <p class="price">R$ 25,00 (Simples) | R$ 33,00 (Duplo)</p>
-                <div class="customize">
-                    <h3>Customize seu pedido</h3>
-                    <p>Tamanho:</p>
-                    <label><input type="radio" name="size-classico" value="single" checked> Simples</label>
-                    <label><input type="radio" name="size-classico" value="double"> Duplo</label>
-                    <p>Pão:</p>
-                    <label><input type="radio" name="bread-classico" value="brioche" checked> Brioche</label>
-                    <label><input type="radio" name="bread-classico" value="parmesao"> Parmesão</label>
-                    <p>Remover Ingredientes:</p>
-                    <label><input type="checkbox" value="cebola" class="ingredient-classico"> Cebola Roxa</label>
-                    <label><input type="checkbox" value="alface" class="ingredient-classico"> Alface</label>
-                    <label><input type="checkbox" value="tomate" class="ingredient-classico"> Tomate</label>
-                    <label><input type="checkbox" value="maionese" class="ingredient-classico"> Maionese da Casa</label>
-                </div>
-                <button class="add-to-cart-btn" onclick="addToCart('CHAMA Clássico', 'size-classico', 'bread-classico', 'ingredient-classico')">Adicionar ao Carrinho</button>
+                <h2><span class="menu-icon">►</span> CHAMA Clássico <span class="price">R$25 | Duplo: R$33</span></h2>
+                <p>Pão, Hambúrguer de carne bovina, queijo mussarela, cebola roxa, alface, tomate, maionese da casa.</p>
             </div>
 
             <div class="menu-item">
-                <h2>CHAMA Bacon</h2>
-                <p>Carne bovina, queijo mussarela, cheddar, bacon em tiras, cebola roxa, alface, tomate, BBQ e maionese da casa.</p>
-                <p class="price">R$ 29,00 (Simples) | R$ 37,00 (Duplo)</p>
-                <div class="customize">
-                    <h3>Customize seu pedido</h3>
-                    <p>Tamanho:</p>
-                    <label><input type="radio" name="size-bacon" value="single" checked> Simples</label>
-                    <label><input type="radio" name="size-bacon" value="double"> Duplo</label>
-                    <p>Pão:</p>
-                    <label><input type="radio" name="bread-bacon" value="brioche" checked> Brioche</label>
-                    <label><input type="radio" name="bread-bacon" value="parmesao"> Parmesão</label>
-                    <p>Remover Ingredientes:</p>
-                    <label><input type="checkbox" value="bacon" class="ingredient-bacon"> Bacon</label>
-                    <label><input type="checkbox" value="cheddar" class="ingredient-bacon"> Cheddar</label>
-                    <label><input type="checkbox" value="cebola" class="ingredient-bacon"> Cebola Roxa</label>
-                    <label><input type="checkbox" value="maionese" class="ingredient-bacon"> Maionese da Casa</label>
-                </div>
-                <button class="add-to-cart-btn" onclick="addToCart('CHAMA Bacon', 'size-bacon', 'bread-bacon', 'ingredient-bacon')">Adicionar ao Carrinho</button>
+                <h2><span class="menu-icon">►</span> CHAMA Bacon <span class="price">R$29 | Duplo: R$37</span></h2>
+                <p>Pão, Hambúrguer de carne bovina, BBQ, queijo mussarela, cheddar cremoso, bacon em tiras, alface, tomate, cebola roxa, maionese da casa.</p>
+            </div>
+
+            <div class="bread-options">
+                <h3>ESCOLHA SEU PÃO:</h3>
+                <ul>
+                    <li><span class="menu-icon">►</span> Brioche</li>
+                    <li><span class="menu-icon">►</span> Parmesão</li>
+                </ul>
+            </div>
+
+            <div class="footer-info">
+                <p><strong>Todos os lanches acompanham</strong> Batata Frita Tradicional</p>
+                <p><strong>Taxa de entrega:</strong> R$ 5,00</p>
             </div>
         </section>
 
@@ -82,3 +64,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
