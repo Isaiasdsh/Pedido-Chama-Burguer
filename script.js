@@ -101,15 +101,38 @@ function finalizeOrder() {
         }
     }
 
-    // Função para copiar a chave Pix
-function copyPixKey() {
-    const pixKey = document.getElementById("pix-key").textContent;
-    const tempInput = document.createElement("input");
-    document.body.appendChild(tempInput);
-    tempInput.value = pixKey;
-    tempInput.select();
+    // Função para gerar o código Pix Copia e Cola
+function generatePixCode() {
+    const pixKey = "CNPJ 48243861000127"; // Chave Pix
+    const merchantName = "Chama Burguer"; // Nome do comerciante
+    const merchantCity = "Florianópolis"; // Cidade do comerciante
+    const total = calculateTotal(); // Função para calcular o valor total do pedido
+    const transactionId = "CHAMABURGER123"; // Identificador único da transação
+
+    // Gera o código Pix Copia e Cola no formato EMV QR Code
+    const pixCode = `
+        000201
+        010212
+        26${pixKey.length + 5}0014BR.GOV.BCB.PIX01${pixKey.length}${pixKey}
+        52040000
+        5303986
+        5407${total.toFixed(2)}
+        5802BR
+        5914${merchantName}
+        6011${merchantCity}
+        62070503${transactionId}
+        6304
+    `.replace(/\s+/g, ''); // Remove espaços
+
+    // Insere o código no textarea
+    document.getElementById("pix-code").value = pixCode;
+}
+
+// Função para copiar o código Pix Copia e Cola
+function copyPixCode() {
+    const pixCode = document.getElementById("pix-code");
+    pixCode.select();
     document.execCommand("copy");
-    document.body.removeChild(tempInput);
 
     // Mostrar mensagem de sucesso
     document.getElementById("copy-success").style.display = "block";
@@ -119,6 +142,17 @@ function copyPixKey() {
         document.getElementById("copy-success").style.display = "none";
     }, 2000);
 }
+
+// Função para calcular o valor total do pedido
+function calculateTotal() {
+    let total = 0;
+    cart.forEach(item => {
+        total += item.price;
+    });
+    total += deliveryFee; // Adiciona a taxa de entrega
+    return total;
+}
+
 
 
     // Gerar a comanda para enviar via WhatsApp
