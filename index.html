@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chama Burguer - Cardápio 3D</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>🍔 Chama Burguer 🍔</h1>
+        <p>O melhor hambúrguer com a sua cara. Personalize seu sabor e faça seu pedido!</p>
+    </header>
+
+    <main>
+        <section id="menu">
+            <div class="menu-item">
+                <h2>CHAMA Clássico</h2>
+                <p>Carne bovina, queijo mussarela, cebola roxa, alface, tomate, e maionese da casa.</p>
+                <p class="price">R$ 25,00 (Simples) | R$ 33,00 (Duplo)</p>
+                <div class="customize">
+                    <h3>Customize seu pedido</h3>
+                    <p>Tamanho:</p>
+                    <label><input type="radio" name="size-classico" value="single" checked> Simples</label>
+                    <label><input type="radio" name="size-classico" value="double"> Duplo</label>
+                    <p>Pão:</p>
+                    <label><input type="radio" name="bread-classico" value="brioche" checked> Brioche</label>
+                    <label><input type="radio" name="bread-classico" value="parmesao"> Parmesão</label>
+                    <p>Remover Ingredientes:</p>
+                    <label><input type="checkbox" value="cebola" class="ingredient-classico"> Cebola Roxa</label>
+                    <label><input type="checkbox" value="alface" class="ingredient-classico"> Alface</label>
+                    <label><input type="checkbox" value="tomate" class="ingredient-classico"> Tomate</label>
+                    <label><input type="checkbox" value="maionese" class="ingredient-classico"> Maionese da Casa</label>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('CHAMA Clássico', 'size-classico', 'bread-classico', 'ingredient-classico')">Adicionar ao Carrinho</button>
+            </div>
+
+            <div class="menu-item">
+                <h2>CHAMA Bacon</h2>
+                <p>Carne bovina, queijo mussarela, cheddar, bacon em tiras, cebola roxa, alface, tomate, BBQ e maionese da casa.</p>
+                <p class="price">R$ 29,00 (Simples) | R$ 37,00 (Duplo)</p>
+                <div class="customize">
+                    <h3>Customize seu pedido</h3>
+                    <p>Tamanho:</p>
+                    <label><input type="radio" name="size-bacon" value="single" checked> Simples</label>
+                    <label><input type="radio" name="size-bacon" value="double"> Duplo</label>
+                    <p>Pão:</p>
+                    <label><input type="radio" name="bread-bacon" value="brioche" checked> Brioche</label>
+                    <label><input type="radio" name="bread-bacon" value="parmesao"> Parmesão</label>
+                    <p>Remover Ingredientes:</p>
+                    <label><input type="checkbox" value="bacon" class="ingredient-bacon"> Bacon</label>
+                    <label><input type="checkbox" value="cheddar" class="ingredient-bacon"> Cheddar</label>
+                    <label><input type="checkbox" value="cebola" class="ingredient-bacon"> Cebola Roxa</label>
+                    <label><input type="checkbox" value="maionese" class="ingredient-bacon"> Maionese da Casa</label>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('CHAMA Bacon', 'size-bacon', 'bread-bacon', 'ingredient-bacon')">Adicionar ao Carrinho</button>
+            </div>
+        </section>
+
+        <section id="cart">
+            <h2>Seu Carrinho</h2>
+            <!-- O conteúdo do carrinho será atualizado aqui -->
+        </section>
+
+        <label for="customer-name">Nome do Cliente:</label>
+        <input type="text" id="customer-name" placeholder="Digite seu nome">
+
+        <label for="address">Endereço Completo:</label>
+        <input type="text" id="address" placeholder="Rua, Número, Bairro">
+
+        <label for="reference">Ponto de Referência:</label>
+        <input type="text" id="reference" placeholder="Ex: Perto do Supermercado X">
+
+        <button class="finalize-btn" onclick="finalizeOrder()">Finalizar Pedido</button>
+
+        <section id="comanda">
+            <h2>Comanda</h2>
+            <!-- A comanda será gerada aqui -->
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
