@@ -19,7 +19,8 @@
             <div class="menu-item">
                 <h2><span class="menu-icon">►</span> CHAMA Clássico</h2>
                 <div class="price-options">
-                    <span>Simples: R$25</span> | <span>Duplo: R$33</span>
+                    <span>Simples: R$25</span>
+                    <span>Duplo: R$33</span>
                 </div>
                 <p>Pão, Hambúrguer de carne bovina, queijo mussarela, cebola roxa, alface, tomate, maionese da casa.</p>
                 <div class="customize">
@@ -30,19 +31,15 @@
                     <p>Pão:</p>
                     <label><input type="radio" name="bread-classico" value="brioche" checked> Brioche</label>
                     <label><input type="radio" name="bread-classico" value="parmesao"> Parmesão</label>
-                    <p>Remover Ingredientes:</p>
-                    <label><input type="checkbox" value="cebola" class="ingredient-classico"> Cebola Roxa</label>
-                    <label><input type="checkbox" value="alface" class="ingredient-classico"> Alface</label>
-                    <label><input type="checkbox" value="tomate" class="ingredient-classico"> Tomate</label>
-                    <label><input type="checkbox" value="maionese" class="ingredient-classico"> Maionese da Casa</label>
                 </div>
-                <button class="add-to-cart-btn" onclick="addToCart('CHAMA Clássico', 'size-classico', 'bread-classico', 'ingredient-classico')">Adicionar ao Carrinho</button>
+                <button class="add-to-cart-btn" onclick="addToCart('CHAMA Clássico', 'size-classico', 'bread-classico')">Adicionar ao Carrinho</button>
             </div>
 
             <div class="menu-item">
                 <h2><span class="menu-icon">►</span> CHAMA Bacon</h2>
                 <div class="price-options">
-                    <span>Simples: R$29</span> | <span>Duplo: R$37</span>
+                    <span>Simples: R$29</span>
+                    <span>Duplo: R$37</span>
                 </div>
                 <p>Pão, Hambúrguer de carne bovina, BBQ, queijo mussarela, cheddar cremoso, bacon em tiras, alface, tomate, cebola roxa, maionese da casa.</p>
                 <div class="customize">
@@ -53,13 +50,8 @@
                     <p>Pão:</p>
                     <label><input type="radio" name="bread-bacon" value="brioche" checked> Brioche</label>
                     <label><input type="radio" name="bread-bacon" value="parmesao"> Parmesão</label>
-                    <p>Remover Ingredientes:</p>
-                    <label><input type="checkbox" value="bacon" class="ingredient-bacon"> Bacon</label>
-                    <label><input type="checkbox" value="cheddar" class="ingredient-bacon"> Cheddar</label>
-                    <label><input type="checkbox" value="cebola" class="ingredient-bacon"> Cebola Roxa</label>
-                    <label><input type="checkbox" value="maionese" class="ingredient-bacon"> Maionese da Casa</label>
                 </div>
-                <button class="add-to-cart-btn" onclick="addToCart('CHAMA Bacon', 'size-bacon', 'bread-bacon', 'ingredient-bacon')">Adicionar ao Carrinho</button>
+                <button class="add-to-cart-btn" onclick="addToCart('CHAMA Bacon', 'size-bacon', 'bread-bacon')">Adicionar ao Carrinho</button>
             </div>
         </section>
 
@@ -103,11 +95,12 @@
                 <input type="text" id="troco" placeholder="Digite o valor do troco">
             </div>
 
-            <!-- Se escolher Pix, exibir chave Pix e orientação -->
-<div id="pix-section" style="display: none;">
-    <h3>Chave Pix: <span class="pix-key" id="pix-key">CNPJ 48243861000127</span></h3>
-    <p>Por favor, finalize o pedido e envie o comprovante para o WhatsApp.</p>
-</div>
+            <!-- Se escolher Pix, exibir chave Pix -->
+            <div id="pix-section" style="display: none;">
+                <h3>Chave Pix: CNPJ 48243861000127</h3>
+                <p>Envie o comprovante junto com o pedido pelo WhatsApp.</p>
+            </div>
+        </section>
 
         <button class="finalize-btn" onclick="finalizeOrder()">Finalizar Pedido</button>
 
@@ -123,8 +116,3 @@
 </body>
 </html>
 
-
-
-    <script src="script.js"></script>
-</body>
-</html>
