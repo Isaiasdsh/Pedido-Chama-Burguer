@@ -139,7 +139,7 @@ function finalizeOrder() {
 
 // Função para enviar pedido via WhatsApp
 function sendOrderToWhatsApp(orderSummary) {
-    const phoneNumber = "48991490613"; // Número do WhatsApp no formato internacional
+    const phoneNumber = "48991758488"; // Número do WhatsApp no formato internacional
     const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(orderSummary)}`;
     window.open(whatsappLink, '_blank');
 }
