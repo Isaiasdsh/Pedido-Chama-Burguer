@@ -12,7 +12,7 @@ function addToCart(productName, sizeClass, breadClass, ingredientClass) {
         removedIngredients.push(checkbox.value);
     });
 
-    let price = size === 'single' ? (productName === 'CHAMA Clássico' ? 25 : 29) : (productName === 'CHAMA Clássico' ? 33 : 37);
+    let price = size === 'single' ? (productName === 'CHAMA Clássico' ? 26 : 30) : (productName === 'CHAMA Clássico' ? 33 : 37);
 
     cart.push({
         productName,
